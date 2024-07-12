@@ -25,6 +25,7 @@ class Post extends Model
         'author_id',
         'title',
         'content',
+        'comments_type',
         'posted_at',
         'slug',
         'thumbnail_id',
@@ -38,6 +39,14 @@ class Post extends Model
     protected $casts = [
         'posted_at' => 'datetime'
     ];
+
+    public static function search($posts, $query)
+    {
+        dump($posts->where('title', 'like', '%' . $query . '%')->orWhere('content', 'like', '%' . $query . '%')->get());
+        return $posts->where('title', 'like', '%' . $query . '%');
+//        return static::where('title', 'like', '%' . $query . '%')
+//            ->orWhere('content', 'like', '%' . $query . '%');
+    }
 
     /**
      * The "booting" method of the model.

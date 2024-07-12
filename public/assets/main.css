@@ -1,0 +1,33 @@
+.container {
+    max-width: 1750px !important;
+}
+
+table tr td {
+    color: blue;
+    text-align: center;
+}
+
+form.selectForm {
+    border: 1px solid #7c3aed;
+    display: block;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 3px 3px 3px 0 #3d3b63;
+}
+
+form.selectForm label {
+    color: indigo;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 4px 9px;
+}
+
+form.selectForm select {
+    color: indigo;
+    font-size: 17px;
+}
+
+form.selectForm select option {
+    color: indigo;
+    font-size: 17px;
+}

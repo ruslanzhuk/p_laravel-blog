@@ -82,6 +82,56 @@
     @enderror
 </div>
 
+{{--<div class="form-group mb-3">--}}
+{{--    <label class="form-label" for="comments">--}}
+{{--        @lang('posts.attributes.comments')--}}
+{{--    </label>--}}
+
+{{--    <select name="comments_type" id="comments_type" @class(['form-control', 'is-invalid' => $errors->has('comments_type')]) required>--}}
+{{--        <option value="none" @selected("none")>--}}
+{{--            none--}}
+{{--        </option>--}}
+{{--        <option value="compatriots">--}}
+{{--            comments for compatriots--}}
+{{--        </option>--}}
+{{--        <option value="everyone">--}}
+{{--            everyone--}}
+{{--        </option>--}}
+{{--    </select>--}}
+{{--    @error('comments_type')--}}
+{{--    <span class="invalid-feedback">{{ $message }}</span>--}}
+{{--    @enderror--}}
+{{--</div>--}}
+
+<div class="form-group mb-3">
+    <label>@lang('posts.attributes.comments')</label><br>
+
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="option" id="option1" value="none" {{ old('option', 1) == 1 ? 'checked' : '' }}>
+        <label class="form-check-label" for="none">
+            None
+        </label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="option" id="option2" value="compatriots" {{ old('option') == 2 ? 'checked' : '' }}>
+        <label class="form-check-label" for="compatriots">
+            Comments for compatriots
+        </label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="option" id="option3" value="everyone" {{ old('option') == 3 ? 'checked' : '' }}>
+        <label class="form-check-label" for="everyone">
+            Everyone
+        </label>
+    </div>
+
+    @error('option')
+    <span class="invalid-feedback">{{ $message }}</span>
+    @enderror
+</div>
+
 
 <div class="form-group mb-3">
     <label class="form-label" for="content">

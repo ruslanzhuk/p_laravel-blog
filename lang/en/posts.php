@@ -21,6 +21,7 @@ return [
     'attributes' => [
         'title' => 'Title',
         'content' => 'Content',
+        'comments' => 'Comments',
         'author' => 'Author',
         'thumbnail' => 'Post picture',
         'posted_at' => 'Posted at',

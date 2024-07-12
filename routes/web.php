@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
@@ -25,3 +26,7 @@ Route::resource('users', UserController::class)->only('show');
 Route::resource('posts.comments', PostCommentController::class)->only('index');
 
 Route::get('newsletter-subscriptions/unsubscribe', [NewsletterSubscriptionController::class, 'unsubscribe'])->name('newsletter-subscriptions.unsubscribe');
+
+Route::get('cos', [HomeController::class, 'index'])->name('home.index');
+Route::get('cos/contact', [HomeController::class, 'contact'])->name('home.contact');
+Route::get('cos/users', [HomeController::class, 'users'])->name('home.users');

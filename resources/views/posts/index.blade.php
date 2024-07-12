@@ -1,5 +1,29 @@
 @extends('layouts.app')
 
+@section('custom')
+
+    <form class="selectForm" action="" method="get">
+        <label for="option">Оберіть країну</label>
+        <select name="option" id="option" onchange="autoSubmitForm()">
+{{--            <?php--}}
+{{--            if(isset($_GET["option"])) {--}}
+{{--                ?>--}}
+{{--            <option id="current_opt" value="{{ $_GET["option"] }}">{{ $_GET["option"] }}</option>--}}
+{{--                <?php--}}
+{{--            }--}}
+{{--            ?>--}}
+            <option value="USA">USA</option>
+            <option value="Ukraine">Ukraine</option>
+            <option value="Poland">Poland</option>
+            <option value="Portuguie">Portuguie</option>
+            <option value="Germany">Germany</option>
+            <option value="Grecja">Grecja</option>
+            <option value="Chine">Chine</option>
+            <option value="Japan">Japan</option>
+        </select>
+    </form>
+@endsection
+
 @section('content')
   @include ('posts/_search_form')
 
@@ -15,7 +39,7 @@
         </h2>
       </div>
 
-      <div class="p-2">
+      <div id="post" class="p-2">
         <a href="{{ route('posts.feed') }}" data-turbo="false">
           <x-icon name="rss" />
         </a>
