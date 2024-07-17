@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\PostCommentController;
@@ -24,6 +25,7 @@ Route::get('/posts/feed', [PostFeedController::class, 'index'])->name('posts.fee
 Route::resource('posts', PostController::class)->only('show');
 Route::resource('users', UserController::class)->only('show');
 Route::resource('posts.comments', PostCommentController::class)->only('index');
+Route::post('comments', [CommentController::class, 'store'])->name('comments.store');
 
 Route::get('newsletter-subscriptions/unsubscribe', [NewsletterSubscriptionController::class, 'unsubscribe'])->name('newsletter-subscriptions.unsubscribe');
 

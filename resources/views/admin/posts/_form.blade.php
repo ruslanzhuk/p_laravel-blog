@@ -107,22 +107,22 @@
     <label>@lang('posts.attributes.comments')</label><br>
 
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="option" id="option1" value="none" {{ old('option', 1) == 1 ? 'checked' : '' }}>
-        <label class="form-check-label" for="none">
+        <input class="form-check-input" type="radio" name="comments_type" id="option1" value="none" {{ old('option', 1) == 1 ? 'checked' : '' }}>
+        <label class="form-check-label" for="comments_type">
             None
         </label>
     </div>
 
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="option" id="option2" value="compatriots" {{ old('option') == 2 ? 'checked' : '' }}>
-        <label class="form-check-label" for="compatriots">
+        <input class="form-check-input" type="radio" name="comments_type" id="option2" value="compatriots" {{ old('option') == 2 ? 'checked' : '' }}>
+        <label class="form-check-label" for="comments_type">
             Comments for compatriots
         </label>
     </div>
 
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="option" id="option3" value="everyone" {{ old('option') == 3 ? 'checked' : '' }}>
-        <label class="form-check-label" for="everyone">
+        <input class="form-check-input" type="radio" name="comments_type" id="option3" value="everyone" {{ old('option') == 3 ? 'checked' : '' }}>
+        <label class="form-check-label" for="comments_type">
             Everyone
         </label>
     </div>

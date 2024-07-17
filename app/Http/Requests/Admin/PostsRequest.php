@@ -39,6 +39,7 @@ class PostsRequest extends FormRequest
         return [
             'title' => 'required',
             'content' => 'required',
+            'comments_type' => 'required|in:everyone,compatriots,none',
             'posted_at' => 'required|date',
             'thumbnail_id' => 'nullable|exists:media,id',
             'author_id' => ['required', 'exists:users,id', new CanBeAuthor],

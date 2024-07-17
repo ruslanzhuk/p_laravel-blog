@@ -12,6 +12,8 @@ return [
     'sign_in_to_comment' => 'You must be signed in to comment.',
     'loading_comments' => 'Load comments',
     'posted_on' => 'Posted on',
+    'comments_are_disabled' => 'Comments are disabled on this post.',
+    'comments_are_able_only' => 'Comments are able only for users from ',
 
     'attributes' => [
         'content' => 'Content',

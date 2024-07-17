@@ -1,5 +1,5 @@
 <div class="col">
-  <x-card class="border-0">
+  <x-card class="postik border-0">
     @if ($post->hasThumbnail())
       <x-slot:image>
         <a href="{{ route('posts.show', $post)}}" data-turbo-frame="_top">
@@ -37,5 +37,8 @@
         @include('likes/_likes')
       </small>
     </div>
+    <p class="card-text text-body-secondary">
+        {{ $post->comments_type }}
+    </p>
   </x-card>
 </div>

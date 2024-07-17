@@ -14,11 +14,17 @@
     @endcan
   </div>
 
-  <h6>
-    <a href="{{ route('users.show', $comment->author) }}">
-      {{ $comment->author->name }}
-    </a>
-  </h6>
+    @if($comment->author->name == "Guest")
+        <h6>
+                {{ $comment->author->name }} {{ $comment->guest_name }}
+        </h6>
+    @else
+        <h6>
+            <a href="{{ route('users.show', $comment->author) }}">
+                {{ $comment->author->name }}
+            </a>
+        </h6>
+    @endif
 
   <p class="card-text">
     {{ $comment->content }}

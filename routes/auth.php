@@ -51,9 +51,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::match(['put', 'patch'], 'password', [UserPasswordController::class, 'update'])->name('users.password.update');
     });
 
+    Route::post('posts/{post}/comments', [CommentController::class, 'store'])->middleware('check.comments.type');
     Route::resource('comments', CommentController::class)->only(['store', 'destroy']);
     Route::post('/posts/{post}/likes', [PostLikeController::class, 'store'])->name('posts.likes.store');
     Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('posts.likes.destroy');
 
     Route::resource('newsletter-subscriptions', NewsletterSubscriptionController::class)->only('store');
 });
+
