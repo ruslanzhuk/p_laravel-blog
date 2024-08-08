@@ -6,6 +6,7 @@ use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostFeedController;
+use App\Http\Controllers\ReactionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,3 +33,7 @@ Route::get('newsletter-subscriptions/unsubscribe', [NewsletterSubscriptionContro
 Route::get('cos', [HomeController::class, 'index'])->name('home.index');
 Route::get('cos/contact', [HomeController::class, 'contact'])->name('home.contact');
 Route::get('cos/users', [HomeController::class, 'users'])->name('home.users');
+
+
+Route::post('posts/{post}/reactions', [ReactionController::class, 'store'])->name('reactions.store');
+//Route::delete('posts/{post}/reactions', [ReactionController::class, 'destroy'])->name('reactions.destroy');

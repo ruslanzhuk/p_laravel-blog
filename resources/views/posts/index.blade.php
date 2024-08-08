@@ -26,7 +26,6 @@
 
 @section('content')
   @include ('posts/_search_form')
-
   <x-turbo-frame id="posts">
     <div class="d-flex justify-content-between gap-3 mt-3">
       <div class="p-2">

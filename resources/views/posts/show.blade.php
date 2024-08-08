@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+    {{ dump($post->getReactions()) }}
   <x-card class="border-0">
     @if ($post->hasThumbnail())
       <x-slot:image>
@@ -26,7 +28,13 @@
 
     <div class="mt-3">
       @include('likes/_likes')
+        <form action="{{ route("reactions.store", ['post' => $post]) }}" method="post">
+            @csrf
+            <button type="submit">show reactions</button>
+        </form>
     </div>
+
+        <form action=""></form>
   </x-card>
 
   @include ('comments/_list')

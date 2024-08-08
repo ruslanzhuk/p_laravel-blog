@@ -9,8 +9,10 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\JakisController;
 use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\ReactionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserPasswordController;
 use Illuminate\Support\Facades\Route;
@@ -57,5 +59,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/posts/{post}/likes', [PostLikeController::class, 'destroy'])->name('posts.likes.destroy');
 
     Route::resource('newsletter-subscriptions', NewsletterSubscriptionController::class)->only('store');
+
+    Route::post('posts/{post}/act', [ReactionController::class, 'store'])->name('posts.reactions.store');
+    Route::delete('posts/{post}/act', [ReactionController::class, 'destroy'])->name('posts.reactions.destroy');
+
+    Route::post('cos/contact', [JakisController::class, 'store'])->name('cos.contact.store');
 });
 

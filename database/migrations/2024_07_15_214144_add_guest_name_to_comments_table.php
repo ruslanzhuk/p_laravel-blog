@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('comments', function (Blueprint $table) {
-            $table->string('guest_name')->nullable();
+            if (!Schema::hasColumn('comments', 'guest_name')) {
+                $table->string('guest_name')->nullable();
+            }
         });
     }
 
@@ -22,7 +24,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('comments', function (Blueprint $table) {
-            //
+            $table->dropColumn('guest_name');
         });
     }
 };

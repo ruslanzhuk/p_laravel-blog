@@ -153,4 +153,19 @@ class Post extends Model
     {
         return filled($this->thumbnail_id);
     }
+
+    public function reactions()
+    {
+        return $this->hasMany(Reaction::class);
+    }
+
+    public function getReactions()
+    {
+        return $this->reactions;
+    }
+
+    public function getReactionCount($reaction)
+    {
+        return $this->reactions()->where('reaction', $reaction)->count();
+    }
 }
