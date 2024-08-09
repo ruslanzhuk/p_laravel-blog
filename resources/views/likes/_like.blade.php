@@ -1,12 +1,8 @@
 @auth
     <x-turbo-frame :id="[$post, 'reaction']">
-        <?php
-            //$userReaction = $post->getReactionCount("&#128525;");
-            $userReaction = $post->reactions->firstWhere('user_id', auth()->id());
-            //dump($userReaction);
-        ?>
+        <?php $userReaction = $post->reactions->firstWhere('user_id', auth()->id()); ?>
         @if ($userReaction)
-            <form id="reaction-form" action="{{ route('posts.reactions.destroy', $post) }}" method="POST" class="form-inline" data-turbo="true">
+            <form class="reaction-form-delete" style="display: inline-block" id="reaction-form" action="{{ route('posts.reactions.destroy', $post) }}" method="POST" class="form-inline" data-turbo="true">
                 @method('DELETE')
                 @csrf
 

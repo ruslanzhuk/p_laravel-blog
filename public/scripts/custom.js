@@ -95,3 +95,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 //     });
 // });
 
+function reloadFunction() {
+  location.reload();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('turbo:before-fetch-response', function(event) {
+    location.reload();
+  });
+});
+

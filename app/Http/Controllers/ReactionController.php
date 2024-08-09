@@ -14,7 +14,7 @@ use function Tonysm\TurboLaravel\dom_id;
 class ReactionController extends Controller
 {
     //
-    public function store(Request $request, Post $post): MultiplePendingTurboStreamResponse
+    public function store(Request $request, Post $post)//: MultiplePendingTurboStreamResponse
     {
         $user = auth()->user();
 
@@ -27,14 +27,13 @@ class ReactionController extends Controller
             ['reaction' => $request->reaction]
         );
 
-        if($reaction) {
-            return response()->turboStream([
-                response()->turboStream()->replace(dom_id($post, 'reaction'))->view('likes._like', ['post' => $post]),
-                response()->turboStream()->update(dom_id($post, $request->reaction.'_count'), Str::of("&$request->reaction" . $post->getReactionCount("$request->reaction"))->toHtmlString())
-            ]);
-        }
-
-        return redirect()->back()->with('success', 'Reaction added!');
+//        if($reaction) {
+//            return response()->turboStream([
+//                response()->turboStream()->replace(dom_id($post, 'reaction'))->view('likes._like', ['post' => $post]),
+//                response()->turboStream()->update(dom_id($post, $request->reaction.'_count'), Str::of("&$request->reaction" . $post->getReactionCount("$request->reaction"))->toHtmlString())
+//            ]);
+//        }
+        return redirect()->back();//->with('success', 'Reaction added!');
     }
 
     public function destroy(Request $request, Post $post): MultiplePendingTurboStreamResponse
